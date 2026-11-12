@@ -1,0 +1,13 @@
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Africa/Addis_Ababa"
+    open-pull-requests-limit: 8
+    groups:
+      python-minor-patch:
+        update-types: ["minor", "patch"]
