@@ -27,3 +27,8 @@ def test_metrics_reject_mismatched_shapes():
 def test_metrics_reject_non_finite_values():
     with pytest.raises(ValueError, match="finite"):
         compute_metrics([np.nan], [1.0])
+
+
+def test_metrics_reject_empty_arrays():
+    with pytest.raises(ValueError, match="must not be empty"):
+        compute_metrics([], [])
