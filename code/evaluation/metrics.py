@@ -4,6 +4,8 @@ import numpy as np
 def _as_matching_arrays(pred, true):
     pred = np.asarray(pred, dtype=np.float64)
     true = np.asarray(true, dtype=np.float64)
+    if pred.size == 0:
+        raise ValueError("pred and true must not be empty")
     if pred.shape != true.shape:
         raise ValueError("pred and true must have identical shapes")
     if not np.all(np.isfinite(pred)) or not np.all(np.isfinite(true)):
