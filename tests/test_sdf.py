@@ -19,6 +19,7 @@ def test_sdf_is_negative_inside_and_positive_outside():
     assert field[1, 0] > 0
     assert len(gradient) == 2
     assert all(component.shape == field.shape for component in gradient)
+    assert all(np.all(np.isfinite(component)) for component in gradient)
 
 
 def test_sdf_rejects_invalid_polygon():
