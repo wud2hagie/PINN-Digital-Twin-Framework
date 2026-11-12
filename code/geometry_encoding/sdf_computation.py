@@ -69,5 +69,5 @@ class SignedDistanceFunction:
         signed_distances = np.where(inside, -distances, distances)
 
         self.sdf = signed_distances.reshape(self.grid_resolution, self.grid_resolution)
-        self.gradient = np.gradient(self.sdf)
+        self.gradient = np.gradient(self.sdf, y[1] - y[0], x[1] - x[0])
         return self.sdf, self.gradient
